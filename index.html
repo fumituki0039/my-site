@@ -21,12 +21,13 @@
             min-height: 100vh;
             box-sizing: border-box;
 
-            /* 背景画像の設定（縦横比を維持して全体をぴったり納める） */
+            /* 背景画像の設定（繰返しを防止し、画面全体にぴったり固定） */
             background-image: url('bg.jpg');
-            background-size: 100% auto; /* 横幅を100%に合わせて全体を表示 */
+            background-size: cover; /* 画面全体を覆うように拡大・縮小 */
             background-position: center top;
-            background-repeat: repeat-y; /* 縦に長いページでも背景が途切れないようにする */
-            background-color: #f6f3ee; /* 画像の周りのなじませ色 */
+            background-repeat: no-repeat; /* 繰り返し（リピート）を防止 */
+            background-attachment: fixed; /* スクロールしても背景を固定 */
+            background-color: #f6f3ee;
         }
 
         .container {
