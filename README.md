@@ -3,7 +3,7 @@
     "name": "平尾瑞希",
     "birthdate": "2003年11月16日",
     "email": "s3c102600090@toyo.jp",
-    "avatarImage": "<img src="6FDD90C8-1DEF-421A-8D80-7EBD70FCBEAD.jpeg" alt="写真">"
+    "avatarImage": "img src="6FDD90C8-1DEF-421A-8D80-7EBD70FCBEAD.jpeg" alt="写真""
   },
   "education": [
     {
