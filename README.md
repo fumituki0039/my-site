@@ -1,1 +1,47 @@
-# my-site
+{
+  "profile": {
+    "name": "平尾瑞希",
+    "birthdate": "2003年11月16日",
+    "email": "s3c102600090@toyo.jp",
+    "avatarImage": "<img src="6FDD90C8-1DEF-421A-8D80-7EBD70FCBEAD.jpeg" alt="写真">"
+  },
+  "education": [
+    {
+      "school": "東洋大学 食環境科学部",
+      "detail": "食品微生物学研究室",
+      "period": "2022年4月〜2026年3月"
+    },
+    {
+      "school": "東洋大学 大学院 食環境科学研究科",
+      "detail": "食品微生物学研究室 - 博士前期課程",
+      "period": "2026年4月〜在学中"
+    }
+  ],
+  "research": {
+    "description": "セレウス菌を専門に、毒素解析や耐熱性の研究を行っています。",
+    "photos": [
+      "research1.jpg",
+      "research2.jpg",
+      "research3.jpg"
+    ]
+  },
+  "achievements": [
+    {
+      "title": "
+食品製造環境由来リステリアモノサイトゲネスの消毒薬、重金属およびストレス条件に対する耐性",
+      "info": "第99回日本細菌学会総会 - 土屋響己"
+    },
+    {
+      "title": "香辛料由来セレウス菌の毒素関連遺伝子保有状況および芽胞耐熱性の検討",
+      "info": "第47回日本食品微生物学学術総会 - 平尾瑞希"
+    }
+  ],
+  "otherActivities": {
+    "description": "学部からインターンシップ活動に参加しています！イベントの企画や運営、販売を中心に関わらせて頂いています！",
+    "photos": [
+      "activity1.jpg",
+      "activity2.jpg",
+      "activity3.jpg"
+    ]
+  }
+}
