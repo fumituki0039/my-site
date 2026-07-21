@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <!-- Google Fonts: 柔らかい和文フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* 全体スタイリング */
+    :root {
+      --bg-color: #f6f3ed;
+      --main-green: #6d887d;
+      --text-color: #4a443c;
+      --sub-text: #6e675e;
+      --line-color: #8fa095;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Zen Maru Gothic', sans-serif;
+      line-height: 1.6;
+      padding: 30px 20px 60px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ヘッダー・プロフィール */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .avatar-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: var(--main-green);
+      margin: 0 auto 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      font-size: 15px;
+      color: var(--sub-text);
+      line-height: 1.8;
+    }
+
+    .profile-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 2px;
+    }
+
+    .profile-email a {
+      color: var(--sub-text);
+      text-decoration: none;
+    }
+
+    /* セクション共通 */
+    section {
+      margin-bottom: 45px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    /* タイムライン（学歴・実績） */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 15px;
+    }
+
+    /* 縦のドット線 */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      border-left: 2px dotted var(--line-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 二重丸アイコン */
+    .timeline-icon {
+      position: absolute;
+      left: -32px;
+      top: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: var(--bg-color);
+      border: 3px solid var(--main-green);
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-icon::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--main-green);
+    }
+
+    .timeline-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .timeline-sub {
+      font-size: 14px;
+      color: var(--sub-text);
+      margin-top: 2px;
+    }
+
+    .timeline-date {
+      font-size: 13px;
+      color: var(--sub-text);
+      margin-top: 2px;
+    }
+
+    /* 長文テキスト */
+    .text-block {
+      font-size: 14px;
+      color: var(--sub-text);
+      text-align: center;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    /* 3連写真ギャラリー */
+    .photo-grid {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+    }
+
+    .photo-box {
+      flex: 1;
+      aspect-ratio: 1 / 1;
+      background-color: var(--main-green);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- プロフィール（ヘッダー） -->
+  <header class="profile-header">
+    <div class="avatar-wrapper" id="avatar-container">写真</div>
+    <div class="profile-name" id="name">氏名</div>
+    <div class="profile-info">
+      <div id="birthdate">生年月日</div>
+      <div class="profile-email" id="email">mail</div>
+    </div>
+  </header>
+
+  <!-- 学歴 -->
+  <section>
+    <h2 class="section-title">学歴</h2>
+    <div class="timeline" id="education-list"></div>
+  </section>
+
+  <!-- 研究内容 -->
+  <section>
+    <h2 class="section-title">研究内容</h2>
+    <div class="text-block" id="research-text"></div>
+    <div class="photo-grid" id="research-photos"></div>
+  </section>
+
+  <!-- 実績 -->
+  <section>
+    <h2 class="section-title">実績</h2>
+    <div class="timeline" id="achievements-list"></div>
+  </section>
+
+  <!-- その他活動 -->
+  <section>
+    <h2 class="section-title">その他活動</h2>
+    <div class="text-block" id="activities-text"></div>
+    <div class="photo-grid" id="activities-photos"></div>
+  </section>
+
+  <!-- JavaScript: data.json からデータを読み込んで動的に表示 -->
+  <script>
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        // プロフィール
+        document.getElementById('name').textContent = data.profile.name;
+        document.getElementById('birthdate').textContent = data.profile.birthdate;
+        document.getElementById('email').innerHTML = `<a href="mailto:${data.profile.email}">${data.profile.email}</a>`;
+        if (data.profile.avatarImage) {
+          document.getElementById('avatar-container').innerHTML = `<img src="${data.profile.avatarImage}" alt="プロフィール写真">`;
+        }
+
+        // 学歴
+        const eduContainer = document.getElementById('education-list');
+        data.education.forEach(item => {
+          eduContainer.innerHTML += `
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <div class="timeline-title">${item.school}</div>
+              <div class="timeline-sub">${item.detail}</div>
+              <div class="timeline-date">${item.period}</div>
+            </div>
+          `;
+        });
+
+        // 研究内容
+        document.getElementById('research-text').textContent = data.research.description;
+        const resPhotoContainer = document.getElementById('research-photos');
+        data.research.photos.forEach((photo, i) => {
+          if (photo) {
+            resPhotoContainer.innerHTML += `<div class="photo-box"><img src="${photo}" alt="研究写真"></div>`;
+          } else {
+            resPhotoContainer.innerHTML += `<div class="photo-box">写真</div>`;
+          }
+        });
+
+        // 実績
+        const achContainer = document.getElementById('achievements-list');
+        data.achievements.forEach(item => {
+          achContainer.innerHTML += `
+            <div class="timeline-item">
+              <div class="timeline-icon"></div>
+              <div class="timeline-title">${item.title}</div>
+              <div class="timeline-sub">${item.info}</div>
+            </div>
+          `;
+        });
+
+        // その他活動
+        document.getElementById('activities-text').textContent = data.otherActivities.description;
+        const actPhotoContainer = document.getElementById('activities-photos');
+        data.otherActivities.photos.forEach((photo, i) => {
+          if (photo) {
+            actPhotoContainer.innerHTML += `<div class="photo-box"><img src="${photo}" alt="活動写真"></div>`;
+          } else {
+            actPhotoContainer.innerHTML += `<div class="photo-box">写真</div>`;
+          }
+        });
+      })
+      .catch(err => console.error('データの読み込みに失敗しました:', err));
+  </script>
+</body>
+</html>
