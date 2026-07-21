@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,7 +8,7 @@ HTML
         :root {
             --primary-color: #6b8e85;
             --text-color: #4a3e3d;
-            --accent-bg: rgba(107, 142, 133, 0.15);
+            --accent-bg: rgba(107, 142, 133, 0.2);
         }
 
         body {
@@ -28,6 +27,7 @@ HTML
             background-position: center top;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-color: #f7f5f0;
         }
 
         .container {
@@ -91,7 +91,6 @@ HTML
             letter-spacing: 0.1em;
         }
 
-        /* 見出しの下にマーカー（ライン）を引くデザイン */
         .section-title::after {
             content: "";
             position: absolute;
@@ -104,7 +103,6 @@ HTML
             z-index: -1;
         }
 
-        /* タイムライン（ライン＆ドット）のデザイン */
         .timeline {
             position: relative;
             padding-left: 35px;
@@ -112,7 +110,6 @@ HTML
             margin-top: 15px;
         }
 
-        /* 縦の点線 */
         .timeline::before {
             content: '';
             position: absolute;
@@ -128,7 +125,6 @@ HTML
             margin-bottom: 25px;
         }
 
-        /* 丸いドットアイコン */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -218,7 +214,6 @@ HTML
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
-            // Profile
             if (data.profile) {
                 if (data.profile.name) document.getElementById('profile-name').textContent = data.profile.name;
                 if (data.profile.birthdate) document.getElementById('profile-birth').textContent = data.profile.birthdate;
@@ -229,7 +224,6 @@ HTML
                 }
             }
 
-            // Education (Timeline)
             if (data.education && Array.isArray(data.education)) {
                 const eduContainer = document.getElementById('education-list');
                 eduContainer.innerHTML = '';
@@ -245,7 +239,6 @@ HTML
                 });
             }
 
-            // Research
             if (data.research) {
                 const resContainer = document.getElementById('research-content');
                 let photosHtml = '';
@@ -260,7 +253,6 @@ HTML
                 `;
             }
 
-            // Achievements (Timeline)
             if (data.achievements && Array.isArray(data.achievements)) {
                 const achContainer = document.getElementById('achievements-list');
                 achContainer.innerHTML = '';
@@ -275,7 +267,6 @@ HTML
                 });
             }
 
-            // Other Activities
             if (data.otherActivities) {
                 const otherContainer = document.getElementById('other-content');
                 let photosHtml = '';
