@@ -3,7 +3,7 @@
     "name": "平尾瑞希",
     "birthdate": "2003年11月16日",
     "email": "s3c102600090@toyo.jp",
-    "avatarImage": "img src="6FDD90C8-1DEF-421A-8D80-7EBD70FCBEAD.jpeg" alt="写真""
+    "avatarImage": "img src="6FDD90C8-1DEF-421A-8D80-7EBD70FCBEAD.jpeg"
   },
   "education": [
     {
@@ -27,8 +27,7 @@
   },
   "achievements": [
     {
-      "title": "
-食品製造環境由来リステリアモノサイトゲネスの消毒薬、重金属およびストレス条件に対する耐性",
+      "title": "食品製造環境由来リステリアモノサイトゲネスの消毒薬、重金属およびストレス条件に対する耐性",
       "info": "第99回日本細菌学会総会 - 土屋響己"
     },
     {
