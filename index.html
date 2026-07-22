@@ -21,12 +21,12 @@
             min-height: 100vh;
             box-sizing: border-box;
 
-            /* 背景画像の設定（繰返しを防止し、画面全体にぴったり固定） */
+            /* 縦長1枚画像を画面ぴったりに表示する設定 */
             background-image: url('bg.jpg');
-            background-size: cover; /* 画面全体を覆うように拡大・縮小 */
-            background-position: center top;
-            background-repeat: no-repeat; /* 繰り返し（リピート）を防止 */
-            background-attachment: fixed; /* スクロールしても背景を固定 */
+            background-size: cover;          /* 画面全体をぴったりカバー */
+            background-position: center top; /* 上基準で配置 */
+            background-repeat: no-repeat;    /* リピートなし */
+            background-attachment: fixed;    /* スクロールしても背景を固定 */
             background-color: #f6f3ee;
         }
 
@@ -103,21 +103,12 @@
             z-index: -1;
         }
 
+        /* 点線なしのレイアウト調整 */
         .timeline {
             position: relative;
-            padding-left: 35px;
+            padding-left: 28px;
             text-align: left;
             margin-top: 15px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 10px;
-            bottom: 20px;
-            width: 2px;
-            border-left: 3px dotted var(--primary-color);
         }
 
         .timeline-item {
@@ -125,17 +116,16 @@
             margin-bottom: 25px;
         }
 
+        /* 緑一色の丸アイコン */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -30px;
-            top: 4px;
-            width: 14px;
-            height: 14px;
+            left: -24px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background-color: #ffffff;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 0 0 2px #ffffff;
+            background-color: var(--primary-color); /* 緑色で塗りつぶし */
         }
 
         .item-title {
