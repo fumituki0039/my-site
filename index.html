@@ -21,13 +21,12 @@
             min-height: 100vh;
             box-sizing: border-box;
 
-            /* 横の柄が見えるように幅を100%にし、縦にリピートさせつつ色をなじませる */
-            background-image: 
-                linear-gradient(to bottom, rgba(246, 243, 238, 0) 70%, rgba(246, 243, 238, 0.8) 100%),
-                url('bg.jpg');
-            background-size: 100% auto; /* 横幅100%にして横の柄をしっかり見せる */
-            background-position: center top;
-            background-repeat: repeat-y; /* 縦方向のみリピート */
+            /* 縦長1枚画像を画面ぴったりに表示する設定 */
+            background-image: url('bg.jpg');
+            background-size: cover;          /* 画面全体をぴったりカバー */
+            background-position: center top; /* 上基準で配置 */
+            background-repeat: no-repeat;    /* リピートなし */
+            background-attachment: fixed;    /* スクロールしても背景を固定 */
             background-color: #f6f3ee;
         }
 
