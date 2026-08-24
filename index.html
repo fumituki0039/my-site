@@ -23,10 +23,10 @@
 
             /* 縦長1枚画像を画面ぴったりに表示する設定 */
             background-image: url('bg.jpg');
-            background-size: cover;          /* 画面全体をぴったりカバー */
-            background-position: center top; /* 上基準で配置 */
-            background-repeat: no-repeat;    /* リピートなし */
-            background-attachment: fixed;    /* スクロールしても背景を固定 */
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             background-color: #f6f3ee;
         }
 
@@ -75,6 +75,24 @@
             margin: 3px 0;
         }
 
+        /* tayoプロフィールのボタンスタイル */
+        .tayo-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: #ffffff;
+            background-color: var(--primary-color);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tayo-link:hover {
+            opacity: 0.85;
+        }
+
         .section {
             margin-top: 40px;
             text-align: center;
@@ -103,7 +121,6 @@
             z-index: -1;
         }
 
-        /* 点線なしのレイアウト調整 */
         .timeline {
             position: relative;
             padding-left: 28px;
@@ -116,7 +133,6 @@
             margin-bottom: 25px;
         }
 
-        /* 緑一色の丸アイコン */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -125,7 +141,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: var(--primary-color); /* 緑色で塗りつぶし */
+            background-color: var(--primary-color);
         }
 
         .item-title {
@@ -177,6 +193,7 @@
         <h1 id="profile-name">氏名</h1>
         <div class="sub-info" id="profile-birth">生年月日</div>
         <div class="sub-info" id="profile-email">mail</div>
+        <div id="tayo-container"></div>
     </div>
 
     <div class="section">
@@ -211,6 +228,10 @@
                 if (data.profile.avatarImage) {
                     const avatarDiv = document.getElementById('avatar-container');
                     avatarDiv.innerHTML = `<img src="${data.profile.avatarImage}" alt="Profile" onerror="this.parentElement.textContent='写真'">`;
+                }
+                if (data.profile.tayoUrl) {
+                    const tayoContainer = document.getElementById('tayo-container');
+                    tayoContainer.innerHTML = `<a href="${data.profile.tayoUrl}" target="_blank" rel="noopener noreferrer" class="tayo-link">tayo profile ↗</a>`;
                 }
             }
 
