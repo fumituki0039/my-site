@@ -21,7 +21,6 @@
             min-height: 100vh;
             box-sizing: border-box;
 
-            /* 縦長1枚画像を画面ぴったりに表示する設定 */
             background-image: url('bg.jpg');
             background-size: cover;
             background-position: center top;
@@ -76,20 +75,20 @@
         }
 
         /* tayoプロフィールのボタンスタイル */
-        .tayo-link {
+        .tayo-btn {
             display: inline-block;
-            margin-top: 8px;
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            color: #ffffff;
+            margin-top: 10px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: #ffffff !important;
             background-color: var(--primary-color);
             border-radius: 20px;
             text-decoration: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
             transition: opacity 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .tayo-link:hover {
+        .tayo-btn:hover {
             opacity: 0.85;
         }
 
@@ -193,7 +192,7 @@
         <h1 id="profile-name">氏名</h1>
         <div class="sub-info" id="profile-birth">生年月日</div>
         <div class="sub-info" id="profile-email">mail</div>
-        <div id="tayo-container"></div>
+        <div id="tayo-link-area"></div>
     </div>
 
     <div class="section">
@@ -225,13 +224,15 @@
                 if (data.profile.name) document.getElementById('profile-name').textContent = data.profile.name;
                 if (data.profile.birthdate) document.getElementById('profile-birth').textContent = data.profile.birthdate;
                 if (data.profile.email) document.getElementById('profile-email').textContent = data.profile.email;
+                
                 if (data.profile.avatarImage) {
                     const avatarDiv = document.getElementById('avatar-container');
                     avatarDiv.innerHTML = `<img src="${data.profile.avatarImage}" alt="Profile" onerror="this.parentElement.textContent='写真'">`;
                 }
+
                 if (data.profile.tayoUrl) {
-                    const tayoContainer = document.getElementById('tayo-container');
-                    tayoContainer.innerHTML = `<a href="${data.profile.tayoUrl}" target="_blank" rel="noopener noreferrer" class="tayo-link">tayo profile ↗</a>`;
+                    const tayoArea = document.getElementById('tayo-link-area');
+                    tayoArea.innerHTML = `<a href="${data.profile.tayoUrl}" target="_blank" rel="noopener noreferrer" class="tayo-btn">tayo profile ↗</a>`;
                 }
             }
 
